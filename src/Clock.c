@@ -39,6 +39,17 @@ void setSystemClock(){
 	pRccClkCfg -> sw = 2; // set pll as system clock
 }
 
+void GPIOClkReset(int gpioNum){
+	// reset
+	pRCCAhb1Rst-> gpioRst = gpioNum;
+	//set
+	pRCCAhb1Rst-> gpioRst = 0;
+}
 
+void GPIOClkEn(int gpioNum){
+	pRccClkEn -> gpioEn = gpioNum;
+}
 
-
+void setAhbFreq(tAHBPrescalerEnum prescaler){
+	pRccClkCfg-> ahbPres = prescaler;
+}

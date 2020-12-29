@@ -1,9 +1,21 @@
 #ifndef __REGISTERS_H
 #define __REGISTERS_H
 
-#include "stdint.h"
+#include "typedefs.h"
 
-#define RCC_BASE_ADDR ((uint32_t) 0x40023800)
+#define RCC_BASE_ADDR   ((u32) 0x40023800)
+
+#define GPIOA_BASE_ADDR ((u32) 0x40020000)
+#define GPIOB_BASE_ADDR ((u32) 0x40020400)
+#define GPIOC_BASE_ADDR ((u32) 0x40020800)
+#define GPIOD_BASE_ADDR ((u32) 0x40020C00)
+#define GPIOE_BASE_ADDR ((u32) 0x40021000)
+#define GPIOF_BASE_ADDR ((u32) 0x40021400)
+#define GPIOG_BASE_ADDR ((u32) 0x40021800)
+#define GPIOH_BASE_ADDR ((u32) 0x40021C00)
+#define GPIOI_BASE_ADDR ((u32) 0x40022000)
+#define GPIOJ_BASE_ADDR ((u32) 0x40022400)
+#define GPIOK_BASE_ADDR ((u32) 0x40022800)
 
     
 

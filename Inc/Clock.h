@@ -116,8 +116,22 @@ struct sRCC_AHB1_CLK_EN_REG *pRccClkEn =
 		(struct sRCC_AHB1_CLK_EN_REG*) (RCC_BASE_ADDR
 				+ RCC_AHB1_PERIPH_EN_OFFSET);
 
+typedef enum {
+		div2 = 0x8,
+		div4 = 0x9,
+		div8 = 0xA,
+		div16 = 0xB,
+		div64 = 0xC,
+		div128 = 0xD,
+		div256 = 0xE,
+		div512 = 0xF
+} tAHBPrescalerEnum;
+
 void setHSEClock();
 void setPllParam();
 void setSystemClock();
+void GPIOClkReset(int gpioNum);
+void GPIOClkEn(int gpioNum);
+void setAhbFreq(tAHBPrescalerEnum prescaler);
 
 #endif
