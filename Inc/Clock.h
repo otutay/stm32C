@@ -6,6 +6,7 @@
 
 #define fullSpeed 168
 
+// for AHB enable
 #define GPIOALOC (1 << 0)
 #define GPIOBLOC (1 << 1)
 #define GPIOCLOC (1 << 2)
