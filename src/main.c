@@ -5,7 +5,8 @@
  *      Author: otutay
  */
 
-//#include "Clock.h"
+#include "Clock.h"
+//#include
 
 int main(){
 
@@ -14,6 +15,11 @@ int main(){
 	setPllParam();
 	setSystemClock();
 	// set peripheral Clock
+	GPIOClkReset(GPIODLOC);
+	GPIOClkEn(GPIODLOC);
+	setAhbFreq(div16);
+
+
 
 
 	while(1);
