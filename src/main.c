@@ -6,23 +6,36 @@
  */
 
 #include "Clock.h"
-//#include
+#include "Gpio.h"
 
 int main(){
 
 	// set main clock
 	setHSEClock();
 	setPllParam();
-	setSystemClock();
 	// set peripheral Clock
 	GPIOClkReset(GPIODLOC);
 	GPIOClkEn(GPIODLOC);
 	setAhbFreq(div16);
+	// system clock set
+	setSystemClock();
 
 
+	// set gpioType
+	tGPIOInit gpioLed;
+	gpioLed.mode = output;
+	gpioLed.outType = pushPull;
+	gpioLed.outSpeed = medium;
+	gpioLed.pUpPDown = noPuPd;
+	gpioLed.pinNum = GPIO_PIN_12 | GPIO_PIN_13;
+
+	gpioInit(&(gpioLed), GPIOD);
 
 
-	while(1);
+	while(1){
+
+
+	}
 	return 0;
 
 }

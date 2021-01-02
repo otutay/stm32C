@@ -7,15 +7,15 @@
 #define fullSpeed 168
 
 // for AHB enable
-#define GPIOALOC (1 << 0)
-#define GPIOBLOC (1 << 1)
-#define GPIOCLOC (1 << 2)
-#define GPIODLOC (1 << 3)
-#define GPIOELOC (1 << 4)
-#define GPIOFLOC (1 << 5)
-#define GPIOGLOC (1 << 6)
-#define GPIOHLOC (1 << 7)
-#define GPIOILOC (1 << 8)
+#define GPIOALOC (int)(1 << 0)
+#define GPIOBLOC (int)(1 << 1)
+#define GPIOCLOC (int)(1 << 2)
+#define GPIODLOC (int)(1 << 3)
+#define GPIOELOC (int)(1 << 4)
+#define GPIOFLOC (int)(1 << 5)
+#define GPIOGLOC (int)(1 << 6)
+#define GPIOHLOC (int)(1 << 7)
+#define GPIOILOC (int)(1 << 8)
 
 #define RCC_CR_OFFSET ((u32)0x00)
 #define RCC_PLL_CFG_OFFSET ((u32) 0x04)
@@ -159,7 +159,7 @@ void setPllParam(){
 
 void setSystemClock(){
 	pRccCR-> pllOn = 1;
-	while(!(pRccCR-> pllRdy)); // wait until pll ready
+	//while(!(pRccCR-> pllRdy)); // wait until pll ready
 	pRccClkCfg -> sw = 2; // set pll as system clock
 }
 
