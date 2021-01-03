@@ -9,6 +9,7 @@
 #define GPIO_H_
 
 #include "typedefs.h"
+#include "stdbool.h"
 
 #define GPIO_PIN_0  ((u16)0x0001)
 #define GPIO_PIN_1  ((u16)0x0002)
@@ -125,15 +126,11 @@ void gpioInit(tGPIOInit *gpioX, tGPIORegs *gpioReg) {
 
 }
 
-void setGpioOut(tGPIOInit *gpioX,tGPIORegs *gpioReg, u32 data) {
-	int pinPos = 1, currentPos = 0;
-
-	for (int i = 0; i < 16; i++) {
-		currentPos = (gpioX->pinNum & (pinPos << i));
-		if (currentPos) {
-
-		}
-	}
+void setGpioOut(tGPIOInit *gpioX,tGPIORegs *gpioReg) {
+	gpioReg-> outData |= gpioX->pinNum;
+}
+void resetGpioOut(tGPIOInit *gpioX,tGPIORegs *gpioReg) {
+	gpioReg-> outData &= ~(gpioX->pinNum);
 }
 //struct sGpio2Bit{
 //	u32 p0 :2;

@@ -132,10 +132,10 @@ typedef enum {
 /// functions
 
 void setHSEClock(){
-	pRccCR -> hsiOn  = 0;
-	pRccCR -> hseByp = 0;
 	pRccCR -> hseOn  = 1;
+	pRccCR -> hseByp = 0;
 	while(!(pRccCR-> hseRdy));
+	//pRccCR -> hsiOn  = 0;
 }
 
 
@@ -161,6 +161,8 @@ void setSystemClock(){
 	pRccCR-> pllOn = 1;
 	//while(!(pRccCR-> pllRdy)); // wait until pll ready
 	pRccClkCfg -> sw = 2; // set pll as system clock
+	// after system clock set then hsi off
+	pRccCR -> hsiOn  = 0;
 }
 
 void GPIOClkReset(int gpioNum){

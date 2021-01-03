@@ -31,11 +31,17 @@ int main(){
 
 	gpioInit(&(gpioLed), GPIOD);
 
-
+	setGpioOut(&gpioLed, GPIOD);
+	//resetGpioOut(&gpioLed, GPIOD);
 	while(1){
-
-
+		resetGpioOut(&gpioLed, GPIOD);
+		for (int var = 0; var < 1000000; ++var);
+		setGpioOut(&gpioLed, GPIOD);
+		for (int var = 0; var < 1000000; ++var);
 	}
 	return 0;
 
 }
+
+
+
